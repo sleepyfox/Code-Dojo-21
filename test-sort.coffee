@@ -1,8 +1,10 @@
 require('chai').should()
 m = require 'mori'
 
+random = -> Math.floor((Math.random() * 256) + 1)
+
 nums = (x) ->
-  m.take(x, m.repeat(1))
+  m.take(x, m.repeatedly(random))
 
 pos_int = (x) ->
   x > 0 and (x is Math.floor(x))
@@ -25,10 +27,24 @@ describe 'a list of numbers', ->
   describe 'when asked for 5 numbers', ->
     it 'should produce a list of 5 things', ->
       m.count(nums(5)).should.equal 5
-    # it 'each one should be a positive integer', ->
-    #   m.every(pos_int)
+    it 'each one should be a positive integer', ->
+      m.every(pos_int, nums(5)).should.be.true
+    it 'each one should be between 1 and 256', ->
+      between_1_256 = (x) -> 1 <= x <= 256
+      m.every(between_1_256, nums(5)).should.be.true
 
-# describe 'A sorted list of numbers', ->
-#   describe 'when given an empty list', ->
-#     it 'should return an empty list', ->
-#       numbers.
+isSorted = (l) ->
+  if m.count(l) <= 1
+    true
+  else
+    m.first(l) <= m.first(m.rest(l)) and isSorted(m.rest(l))
+
+describe 'A sorted list checker', ->
+  it 'should recognise an empty list as sorted', ->
+    isSorted(m.list()).should.be.true
+  it 'should recognise a one-item list as sorted', ->
+    isSorted(m.list(1)).should.be.true
+  it 'should recognise (1,2) as sorted', ->
+    isSorted(m.list(1,2)).should.be.true
+  it 'should recognise (2,1) as unsorted', ->
+    isSorted(m.list(2,1)).should.be.false
