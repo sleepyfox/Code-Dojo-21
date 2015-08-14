@@ -1,0 +1,34 @@
+{
+  "name": "sort-randoms",
+  "version": "1.0.0",
+  "description": "A code kata from the London Code Dojo, using the sorted random numbers kata.",
+  "scripts": {
+    "start": "echo \"You can't start the app, use 'npm test' instead.\"",
+    "test": "mocha -R spec --compilers coffee:coffee-script/register test-*.coffee",
+    "watch": "mocha -w -R spec --compilers  coffee:coffee-script/register test-*.coffee"
+  },
+  "keywords": [
+    "craftsmanship",
+    "kata",
+    "dojo",
+    "tdd"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "author": "@sleepyfox",
+  "license": "CC-BY-NC-SA-4.0",
+  "private": true,
+  "dependencies": {
+    "coffee-script": "^1.9.3",
+    "mori": "^0.3.2"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
