@@ -4,7 +4,7 @@
   "description": "A code kata from the London Code Dojo, using the sorted random numbers kata.",
   "scripts": {
     "start": "echo \"You can't start the app, use 'npm test' instead.\"",
-    "test": "mocha -R spec --compilers coffee:coffee-script/register test-*.coffee",
+    "test": "mocha -R spec -t 20000 --compilers coffee:coffee-script/register test-*.coffee",
     "watch": "mocha -w -R spec --compilers  coffee:coffee-script/register test-*.coffee"
   },
   "keywords": [

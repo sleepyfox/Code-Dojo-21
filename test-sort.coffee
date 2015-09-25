@@ -14,9 +14,11 @@ describe 'a list of numbers', ->
   describe 'when asked for no numbers', ->
     it 'should produce an empty list', ->
       m.isEmpty(nums(0)).should.be.true
+
   describe 'when asked for one number', ->
     it 'should produce a list of length one', ->
       m.count(nums(1)).should.equal 1
+
   describe 'when asked for 5 numbers', ->
     it 'should produce a list of 5 things', ->
       m.count(nums(5)).should.equal 5
@@ -25,9 +27,19 @@ describe 'a list of numbers', ->
     it 'each one should be between 1 and 256', ->
       between_1_256 = (x) -> 1 <= x <= 256
       m.every(between_1_256, nums(5)).should.be.true
-  describe 'when asked for 100000 numbers', ->
+
+  describe 'when asked for 256 numbers', ->
+    it 'should have 256 numbers!', ->
+      m.count(nums(256)).should.equal 256
+
+  describe 'when asked for 100k numbers', ->
     it 'should have 100000 numbers!', ->
-      m.count(nums(10000)).should.equal 10000
+      m.count(nums(100000)).should.equal 100000
+
+  describe 'when asked for 10 million numbers', ->
+    it 'should have 10000000 numbers!', (done) ->
+      m.count(nums(10000000)).should.equal 10000000
+      done()
 
 describe 'A sorted list checker', ->
   it 'should recognise an empty list as sorted', ->
