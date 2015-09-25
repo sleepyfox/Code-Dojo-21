@@ -1,13 +1,6 @@
 require('chai').should()
 m = require 'mori'
-
-random = -> Math.floor((Math.random() * 256) + 1)
-
-nums = (x) ->
-  m.take(x, m.repeatedly(random))
-
-pos_int = (x) ->
-  x > 0 and (x is Math.floor(x))
+{ random, nums, pos_int, isSorted, isPrime } = require './sort'
 
 describe 'A positive integer range checker', ->
   it 'should return true for 1', ->
@@ -32,12 +25,9 @@ describe 'a list of numbers', ->
     it 'each one should be between 1 and 256', ->
       between_1_256 = (x) -> 1 <= x <= 256
       m.every(between_1_256, nums(5)).should.be.true
-
-isSorted = (l) ->
-  if m.count(l) <= 1
-    true
-  else
-    m.first(l) <= m.first(m.rest(l)) and isSorted(m.rest(l))
+  describe 'when asked for 100000 numbers', ->
+    it 'should have 100000 numbers!', ->
+      m.count(nums(10000)).should.equal 10000
 
 describe 'A sorted list checker', ->
   it 'should recognise an empty list as sorted', ->
@@ -48,3 +38,27 @@ describe 'A sorted list checker', ->
     isSorted(m.list(1,2)).should.be.true
   it 'should recognise (2,1) as unsorted', ->
     isSorted(m.list(2,1)).should.be.false
+
+
+describe 'A list sorter', ->
+  describe 'when given an empty list', ->
+    it 'should return the empty list', ->
+      m.isEmpty(m.sort(m.list())).should.be.true
+  describe 'when given a list of 3 numbers', ->
+    it 'should sort them into order', ->
+      m.toJs(m.sort(m.list(3,1,2))).should.deep.equal [1,2,3]
+  describe 'when given a list of 100000 numbers', ->
+    it 'should sort them into order', ->
+      isSorted(m.sort(nums(10000))).should.be.true
+
+describe 'A prime number checker', ->
+  it 'should recognise 1 as not prime', ->
+    isPrime(1).should.be.false
+  it 'should recognise 2 as prime', ->
+    isPrime(2).should.be.true
+  it 'should recognise 3 as prime', ->
+    isPrime(3).should.be.true
+  it 'should recognise 4 as not prime', ->
+    isPrime(4).should.be.false
+  it 'should recognise 5 as prime', ->
+    isPrime(5).should.be.true

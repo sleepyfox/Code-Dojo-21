@@ -24,7 +24,7 @@
   "license": "CC-BY-NC-SA-4.0",
   "private": true,
   "dependencies": {
-    "coffee-script": "^1.9.3",
+    "coffee-script": "^1.10.0",
     "mori": "^0.3.2"
   },
   "devDependencies": {

@@ -6,6 +6,10 @@ The tests can be run from the command-line with:
 
   > npm test
 
+and the tests can be run continuously on changes with:
+
+  > npm run watch
+
 The kata is the 'sorting random-numbers' kata, as follows:
 
 ## Kata: Sorta
