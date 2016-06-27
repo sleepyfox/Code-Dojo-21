@@ -4,8 +4,8 @@
   "description": "A code kata from the London Code Dojo, using the sorted random numbers kata.",
   "scripts": {
     "start": "echo \"You can't start the app, use 'npm test' instead.\"",
-    "test": "mocha -R spec -t 20000 --compilers coffee:coffee-script/register test-*.coffee",
-    "watch": "mocha -w -R spec --compilers  coffee:coffee-script/register test-*.coffee"
+    "test": "mocha -R nyan -t 20000 --compilers coffee:coffee-script/register test*",
+    "watch": "mocha -w -R nyan --compilers  coffee:coffee-script/register test-*.coffee"
   },
   "keywords": [
     "craftsmanship",
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:sleepyfox/Code-Dojo-21.git"
   },
   "bugs": {
     "url": ""
@@ -24,11 +24,11 @@
   "license": "CC-BY-NC-SA-4.0",
   "private": true,
   "dependencies": {
-    "coffee-script": "^1.10.0",
-    "mori": "^0.3.2"
+    "coffee-script": "1.x",
+    "mori": "0.3.x"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "mocha": "^2.2.5"
+    "chai": "3.x",
+    "mocha": "2.x"
   }
 }
