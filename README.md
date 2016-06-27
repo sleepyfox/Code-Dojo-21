@@ -1,5 +1,5 @@
 # Code Dojo 21
-This is my worked example from the 21st meeting of the London Code Dojo. Feel free to play around with it.
+This is my worked example from the 21st meeting of the London Code Dojo. Feel free to play around with it. A [CoffeeScript](http://coffeescript.org/) implementation can be found in the [coffee](coffee) folder.
 
 The tests can be run from the command-line with:
 
