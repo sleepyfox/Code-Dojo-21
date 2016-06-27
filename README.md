@@ -1,6 +1,5 @@
-Code Dojo 34
-============
-This is my worked example from the 34th meeting of the London Code Dojo. Feel free to play around with it. I've used Node.js and
+# Code Dojo 21
+This is my worked example from the 21st meeting of the London Code Dojo. Feel free to play around with it.
 
 The tests can be run from the command-line with:
 
@@ -26,3 +25,6 @@ The customer forgot to mention, they require 100,000 of these numbers, chosen fr
 The customer's business is booming, we need 10 million of these numbers, pronto! And chosen from a list of primes in the range 1..2^32
 
 You can find out more about the London Code Dojo at our [homepage](http://www.meetup.com/London-Code-Dojo/).
+
+# License
+This work is licensed under the 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License', see the [LICENSE](LICENSE) file for full details.
